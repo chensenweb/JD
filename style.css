@@ -179,9 +179,9 @@ border-width:2px 0 2px 2px; outline:none; float:left;}
 .content .list{ height:39px;}
 .content .list .active{ background:#c81623; color:#ffffff;}
 .content .list li{ padding:2px; float:left; margin:15px 0 0 10px; display:inline-block; color:#666666; cursor:pointer;}
-.listWrap p{ position:absolute; left:5px;; bottom:7px;}
+.listWrap p{ position:absolute; left:5px;; bottom:4px;}
 .listWrap p a{ color:#005ea7; }
-.listWrap p strong{ color:#FFF; background:#c81623; font-size:8px; padding:0 2px; margin-right:8px;}
+.listWrap p strong{ color:#FFF; background:#c81623 url(img/hot.gif) no-repeat; margin-right:8px; display:inline-block; width:22px; height:10px; line-height:10px;}
 .listWrap{ padding:5px 0 0 8px; display:none; }
 
 .phoneCon .listWrap .text{ height:20px; width:108px; margin-bottom:12px;}

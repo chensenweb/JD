@@ -72,7 +72,6 @@ $(function(){
 		var oNext = oMd.find('.next');			
 		var num = 0; 
 		var timer=null;
-		function autoPlay(){
 		 timer = setInterval(function(){ 
     		if(num < aA.length-1){ 
       			num ++; 
@@ -81,15 +80,13 @@ $(function(){
     			}
     		changeTo(num); 
   			},2500);
-		}
-		autoPlay();
 		oPrev.click(function(){ 
     		num = (num> 0) ? (--num) : (aA.length - 1);
     		changeTo(num);
   		});
   		oNext.click(function(){ 
-   		num = (num < aA.length - 1) ? (++num) : 0;
-    	changeTo(num);
+   			num = (num < aA.length - 1) ? (++num) : 0;
+    		changeTo(num);
   		});
 		oMd.hover(function(iNow){
 			oPrev.show();
@@ -104,15 +101,19 @@ $(function(){
 			},function(){
 				oPrev.hide();
 				oNext.hide();
-				autoPlay();
+				timer = setInterval(function(){ 
+    				if(num < aA.length-1){ 
+      					num ++; 
+    					}else{ 
+      					num = 0;
+    					}
+    				changeTo(num); 
+  					},2500);
 				});
-			
-  		
-  function changeTo(i){ 
-    aA.hide().eq(i).fadeIn();
-    aLi.removeClass("active").eq(i).addClass("active");
-  }
-		
+  		function changeTo(i){ 
+    		aA.hide().eq(i).fadeIn();
+    		aLi.removeClass("active").eq(i).addClass("active");
+ 	 	}		
 		})();
 	//4图轮播图
 	(function(){
@@ -132,16 +133,16 @@ $(function(){
 			    	num = -1;	
 			  		}
 				num++;
-				oRun.animate({ left : -oWidth*num}, "slow");				
+				oRun.animate({ left : -oWidth*num}, 'slow');				
 		 		}
 			})
 		oPrev.click(function(){
-			if( !oRun.is(":animated") ){   
+			if( !oRun.is(':animated') ){   
 				if( num == 0){  
 			    	num = page;	
 			  		}
 				num--;
-				oRun.animate({ left : -oWidth*num}, "slow");  
+				oRun.animate({ left : -oWidth*num}, 'slow');  
 		 		}
 			})
 
@@ -161,29 +162,29 @@ $(function(){
 			var oGo = oSport.find('.go');
 			var oWidth = oO2.width();
 			oGo.click(function(){
-				 if( !oList.is(":animated") ){  
+				 if( !oList.is(':animated') ){  
 					if( num == i-1){  
 						num = -1;	
 						}
 					num++;
-					oList.animate({ left : -oWidth*num}, "slow");
-					aLi.eq(num).addClass("active").siblings().removeClass("active");
+					oList.animate({ left : -oWidth*num}, 'slow');
+					aLi.eq(num).addClass('active').siblings().removeClass('active');
 				 }
 				})
 			oBack.click(function(){
-				if( !oList.is(":animated") ){   
+				if( !oList.is(':animated') ){   
 					if( num == 0){  
 						num = i;	
 						}
 					num--;
-					oList.animate({ left : -oWidth*num}, "slow");
-					aLi.eq(num).addClass("active").siblings().removeClass("active");  
+					oList.animate({ left : -oWidth*num}, 'slow');
+					aLi.eq(num).addClass('active').siblings().removeClass('active');  
 					}
 				})
 			aLi.each(function(item){ 
 				$(this).mouseover(function(){      			
-					oList.animate({ left : -oWidth*item}, "slow");
-					aLi.eq(item).addClass("active").siblings().removeClass("active");  
+					oList.animate({ left : -oWidth*item}, 'slow');
+					aLi.eq(item).addClass('active').siblings().removeClass('active');  
 					num = item;  			
 					});			
 				});	
